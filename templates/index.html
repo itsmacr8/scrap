@@ -1,0 +1,21 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header>
+    <h1>My Blog</h1>
+    <span class="subheading">A collection of random musings.</span>
+  </header>
+  <hr>
+
+  <form method="POST">
+    <div class="form__group">
+      <label for="website-url">Website URL</label>
+      <input type="text" id="website-url" name="website-url" placeholder="Enter the website URL" required="">
+    </div>
+    <button type="submit" class="btn btn-primary">Get Report</button>
+    {% if file_name %}
+      <a href="{{ url_for('download_csv', file_name=file_name) }}" download>Download CSV</a>
+    {% endif %}
+  </form>
+
+{% include "footer.html" %}
